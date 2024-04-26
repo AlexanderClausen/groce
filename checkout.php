@@ -15,7 +15,14 @@ session_start();
 
 // Check session
 if (!isset($_SESSION['cart']) or !is_array($_SESSION['cart']) or empty($_SESSION['cart']) or array_sum($_SESSION['cart']) == 0) {
-    $content .= 'Your cart is empty.';
+    $content .= '
+        <form id="no-items-form" action="cart.php" method="post">
+            <input type="hidden" name="action" value="noitems">
+        </form>
+        <script>
+            document.getElementById("no-items-form").submit();
+        </script>
+    ';
 }
 else {
     // Check if all items in the cart are sufficiently available and list ids of unavailable items
@@ -81,15 +88,8 @@ else {
             </div>
         </div>
         ';
-
-
-        // Display cart array as string for debugging
-        // $content .= '<pre>'.print_r($_SESSION['cart'], true).'</pre>';
-
+        
         // Recipient details
-        // Phone regex: https://regex101.com/r/9Gke70/1
-        // Email regex: https://regex101.com/r/IBAau6/1
-        // Address regex: https://regex101.com/r/yIQ7EE/1
         $content .= '
         <div class="checkout-container">
             <div id="order-recipient">
@@ -106,7 +106,7 @@ else {
                     </div>
                     <div class="input-row">
                         <label class="required" for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" pattern="^((0|\+61)([ -]?([0-9]{3})){3})$" placeholder="e.g. 0123 456 789" required>
+                        <input type="tel" id="phone" name="phone" pattern="^(0|\+61)[ -]?([0-9]{3}[ -]?){2}[0-9]{3}$" placeholder="e.g. 0123 456 789" required>
                     </div>
                     <div class="input-row">
                         <label class="required" for="street">Address</label>
@@ -138,6 +138,7 @@ else {
                     </div>
                 </form>
             </div>
+        </div>
         ';
     }
 }

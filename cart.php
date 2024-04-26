@@ -106,6 +106,14 @@ if (isset($_POST['action'])) {
                 <a href="./index.php">Continue shopping</a>
             </div>';
     }
+    elseif ($_POST['action'] == 'noitems') {
+        $content .= '
+            <div class="alert">
+                <p>Your order cannot be processed as your cart is empty.</p>
+                <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>
+                <a href="./index.php">Continue shopping</a>
+            </div>';
+    }
 }
 
 // List what's in cart
