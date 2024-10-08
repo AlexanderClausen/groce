@@ -1,6 +1,6 @@
 # Groce - Online Grocery Shop
 
-This is an online grocery store built entirely using **PHP**, **HTML**, **CSS** and a **MySQL** databse, without the use of any frameworks. The project was developed as part of a university assignment in the class **32516 Internet Programming** in the 2024 Autumn Session at the **University of Technology Sydney**, showcasing fundamental skills in web development.
+This is an online grocery store built entirely using **PHP**, **HTML**, **CSS** and a **MySQL** database, without the use of any frameworks. The project was developed as part of a university assignment in the class **32516 Internet Programming** in the 2024 Autumn Session at the **University of Technology Sydney**, showcasing fundamental skills in web development.
 
 ## Features
 
